@@ -107,52 +107,7 @@ export default function Index() {
         <div className="absolute bottom-8 left-16 text-4xl opacity-5 select-none">♥</div>
         <div className="absolute bottom-12 right-8 text-5xl opacity-5 select-none">♠</div>
 
-        <div className="max-w-5xl mx-auto px-4 text-center relative z-10">
-          <div
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-6 tracking-widest uppercase"
-            style={{
-              background: "rgba(232,168,48,0.12)",
-              border: "1px solid rgba(232,168,48,0.3)",
-              color: "#e8a830",
-            }}
-          >
-            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#e8a830" }} />
-            Онлайн казино
-          </div>
 
-          <h1 className="text-4xl md:text-6xl font-black mb-4 leading-tight" style={{ color: "#ebe1cd" }}>
-            Испытай{" "}
-            <span
-              className="font-cormorant italic font-light"
-              style={{ color: "#e8a830" }}
-            >
-              удачу
-            </span>{" "}
-            сегодня
-          </h1>
-
-          <p className="text-lg mb-10 max-w-xl mx-auto" style={{ color: "rgba(235,225,205,0.5)" }}>
-            Слоты, минёр и другие азартные игры. Честные выплаты, мгновенный вывод.
-          </p>
-
-          {/* Stats */}
-          <div className="flex justify-center gap-8 md:gap-16 mb-10">
-            {[
-              { val: "10 000", label: "Стартовый бонус" },
-              { val: "97%", label: "RTP" },
-              { val: "24/7", label: "Поддержка" },
-            ].map((s) => (
-              <div key={s.label} className="text-center">
-                <div className="text-2xl md:text-3xl font-black" style={{ color: "#e8a830" }}>
-                  {s.val}
-                </div>
-                <div className="text-xs mt-1" style={{ color: "rgba(235,225,205,0.45)" }}>
-                  {s.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* ── GAMES ── */}
