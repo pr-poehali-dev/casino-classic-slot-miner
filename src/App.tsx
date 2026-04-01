@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Slots from "./pages/Slots";
 import Miner from "./pages/Miner";
 import Bonuses from "./pages/Bonuses";
+import Crash from "./pages/Crash";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/slots" element={<Slots />} />
           <Route path="/miner" element={<Miner />} />
           <Route path="/bonuses" element={<Bonuses />} />
+          <Route path="/crash" element={<Crash />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

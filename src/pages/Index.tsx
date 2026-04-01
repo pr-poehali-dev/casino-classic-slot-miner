@@ -20,6 +20,15 @@ const games = [
     tagColor: "#22c55e",
     href: "/miner",
   },
+  {
+    id: "crash",
+    title: "Краш",
+    description: "Самолёт взлетает — коэффициент растёт. Успейте забрать до крушения!",
+    emoji: "✈️",
+    tag: "НОВИНКА",
+    tagColor: "#a855f7",
+    href: "/crash",
+  },
 ];
 
 export default function Index() {
@@ -131,7 +140,7 @@ export default function Index() {
           <div className="flex-1 h-px" style={{ background: "rgba(232,168,48,0.15)" }} />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {games.map((game) => (
             <Link
               key={game.id}
@@ -168,7 +177,7 @@ export default function Index() {
                 </div>
                 {/* Corner suit decorations */}
                 <div className="absolute top-3 left-3 text-2xl opacity-10 select-none" style={{ color: "#e8a830" }}>
-                  {game.id === "slots" ? "♠" : "♦"}
+                  {game.id === "slots" ? "♠" : game.id === "crash" ? "★" : "♦"}
                 </div>
               </div>
 
