@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const games = [
   {
@@ -34,6 +35,17 @@ const games = [
 export default function Index() {
   const [balance] = useState(10000);
   const navigate = useNavigate();
+  const { user, logout, setShowAuthModal, setAuthMode } = useAuth();
+
+  const openLogin = () => {
+    setAuthMode("login");
+    setShowAuthModal(true);
+  };
+
+  const openRegister = () => {
+    setAuthMode("register");
+    setShowAuthModal(true);
+  };
 
   return (
     <div className="min-h-screen" style={{ background: "var(--surface)" }}>
@@ -60,10 +72,10 @@ export default function Index() {
             </div>
             <div>
               <span className="text-xl font-black tracking-tight" style={{ color: "#ebe1cd" }}>
-                ROYAL
+                KAZAH
               </span>
               <span className="text-xl font-black tracking-tight" style={{ color: "#e8a830" }}>
-                BET
+                {" "}CASINO
               </span>
             </div>
           </div>
@@ -94,20 +106,64 @@ export default function Index() {
             ))}
           </nav>
 
-          {/* Balance */}
-          <div
-            className="flex items-center gap-2 px-4 py-2 rounded-lg"
-            style={{
-              background: "rgba(232,168,48,0.1)",
-              border: "1px solid rgba(232,168,48,0.25)",
-            }}
-          >
-            <span className="text-sm" style={{ color: "rgba(235,225,205,0.6)" }}>
-              Баланс:
-            </span>
-            <span className="text-sm font-bold" style={{ color: "#e8a830" }}>
-              {balance.toLocaleString("ru")} ₽
-            </span>
+          {/* Auth / Balance */}
+          <div className="flex items-center gap-2">
+            {user ? (
+              <>
+                <div
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg"
+                  style={{
+                    background: "rgba(232,168,48,0.1)",
+                    border: "1px solid rgba(232,168,48,0.25)",
+                  }}
+                >
+                  <span className="text-sm" style={{ color: "rgba(235,225,205,0.6)" }}>
+                    👤 {user.login}
+                  </span>
+                  <span className="text-xs" style={{ color: "rgba(232,168,48,0.5)" }}>|</span>
+                  <span className="text-sm" style={{ color: "rgba(235,225,205,0.6)" }}>Баланс:</span>
+                  <span className="text-sm font-bold" style={{ color: "#e8a830" }}>
+                    {balance.toLocaleString("ru")} К
+                  </span>
+                </div>
+                <button
+                  onClick={logout}
+                  className="px-3 py-2 rounded-lg text-xs font-bold transition-all hover:scale-105"
+                  style={{
+                    background: "rgba(239,68,68,0.1)",
+                    border: "1px solid rgba(239,68,68,0.25)",
+                    color: "#f87171",
+                  }}
+                >
+                  Выйти
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={openLogin}
+                  className="px-4 py-2 rounded-lg text-sm font-bold transition-all hover:scale-105"
+                  style={{
+                    background: "rgba(232,168,48,0.08)",
+                    border: "1px solid rgba(232,168,48,0.25)",
+                    color: "#e8a830",
+                  }}
+                >
+                  Войти
+                </button>
+                <button
+                  onClick={openRegister}
+                  className="px-4 py-2 rounded-lg text-sm font-bold transition-all hover:scale-105"
+                  style={{
+                    background: "linear-gradient(135deg, #e8a830, #c47a10)",
+                    color: "#0e0c08",
+                    boxShadow: "0 2px 12px rgba(232,168,48,0.3)",
+                  }}
+                >
+                  Регистрация
+                </button>
+              </>
+            )}
           </div>
         </div>
       </header>
@@ -127,7 +183,47 @@ export default function Index() {
         <div className="absolute bottom-8 left-16 text-4xl opacity-5 select-none">♥</div>
         <div className="absolute bottom-12 right-8 text-5xl opacity-5 select-none">♠</div>
 
-
+        {/* Hero content */}
+        {!user && (
+          <div className="relative max-w-5xl mx-auto px-4 text-center">
+            <div
+              className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase"
+              style={{ background: "rgba(232,168,48,0.1)", border: "1px solid rgba(232,168,48,0.2)", color: "#e8a830" }}
+            >
+              🎰 Добро пожаловать
+            </div>
+            <h1 className="text-4xl md:text-6xl font-black mb-4" style={{ color: "#ebe1cd" }}>
+              KAZAH <span style={{ color: "#e8a830" }}>CASINO</span>
+            </h1>
+            <p className="text-base mb-8" style={{ color: "rgba(235,225,205,0.45)" }}>
+              Регистрируйся и играй на Казах Коины
+            </p>
+            <div className="flex items-center justify-center gap-3">
+              <button
+                onClick={openRegister}
+                className="px-8 py-3 rounded-xl text-sm font-black transition-all hover:scale-105"
+                style={{
+                  background: "linear-gradient(135deg, #e8a830, #c47a10)",
+                  color: "#0e0c08",
+                  boxShadow: "0 4px 24px rgba(232,168,48,0.35)",
+                }}
+              >
+                Создать аккаунт →
+              </button>
+              <button
+                onClick={openLogin}
+                className="px-8 py-3 rounded-xl text-sm font-bold transition-all hover:scale-105"
+                style={{
+                  background: "rgba(232,168,48,0.08)",
+                  border: "1px solid rgba(232,168,48,0.3)",
+                  color: "#e8a830",
+                }}
+              >
+                Уже есть аккаунт
+              </button>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* ── GAMES ── */}
@@ -213,14 +309,14 @@ export default function Index() {
       >
         <div className="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <span className="text-lg font-black" style={{ color: "#ebe1cd" }}>ROYAL</span>
-            <span className="text-lg font-black" style={{ color: "#e8a830" }}>BET</span>
+            <span className="text-lg font-black" style={{ color: "#ebe1cd" }}>KAZAH</span>
+            <span className="text-lg font-black" style={{ color: "#e8a830" }}> CASINO</span>
           </div>
           <p className="text-xs text-center" style={{ color: "rgba(235,225,205,0.25)" }}>
             Игра на деньги — только для лиц старше 18 лет. Играйте ответственно.
           </p>
           <p className="text-xs" style={{ color: "rgba(235,225,205,0.2)" }}>
-            © 2024 RoyalBet
+            © 2024 KazahCasino
           </p>
         </div>
       </footer>

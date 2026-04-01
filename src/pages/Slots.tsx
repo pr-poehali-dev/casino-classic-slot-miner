@@ -117,8 +117,8 @@ export default function Slots() {
           <Link to="/" className="flex items-center gap-2 group">
             <span className="text-xl" style={{ color: "rgba(235,225,205,0.5)" }}>←</span>
             <div className="flex items-center gap-1.5">
-              <span className="text-lg font-black" style={{ color: "#ebe1cd" }}>ROYAL</span>
-              <span className="text-lg font-black" style={{ color: "#e8a830" }}>BET</span>
+              <span className="text-lg font-black" style={{ color: "#ebe1cd" }}>KAZAH</span>
+              <span className="text-lg font-black" style={{ color: "#e8a830" }}> CASINO</span>
             </div>
           </Link>
 
@@ -132,7 +132,7 @@ export default function Slots() {
             >
               <span className="text-sm" style={{ color: "rgba(235,225,205,0.6)" }}>Баланс:</span>
               <span className="text-sm font-bold" style={{ color: "#e8a830" }}>
-                {balance.toLocaleString("ru")} ₽
+                {balance.toLocaleString("ru")} К
               </span>
             </div>
           </div>
@@ -284,7 +284,7 @@ export default function Slots() {
                   {result && result.win > 0 && (
                     <div className="text-center">
                       <span className="text-xl font-black" style={{ color: "#22c55e" }}>
-                        🎉 +{result.win.toLocaleString("ru")} ₽
+                        🎉 +{result.win.toLocaleString("ru")} К
                       </span>
                     </div>
                   )}
@@ -309,7 +309,7 @@ export default function Slots() {
                         border: `1px solid ${bet === b ? "#e8a830" : "rgba(232,168,48,0.15)"}`,
                       }}
                     >
-                      {b.toLocaleString("ru")} ₽
+                      {b.toLocaleString("ru")} К
                     </button>
                   ))}
                 </div>
@@ -332,7 +332,7 @@ export default function Slots() {
                 </button>
 
                 <p className="text-center text-xs mt-3" style={{ color: "rgba(235,225,205,0.25)" }}>
-                  Ставка: {bet.toLocaleString("ru")} ₽ · Баланс: {balance.toLocaleString("ru")} ₽
+                  Ставка: {bet.toLocaleString("ru")} К · Баланс: {balance.toLocaleString("ru")} К
                 </p>
               </div>
             </div>

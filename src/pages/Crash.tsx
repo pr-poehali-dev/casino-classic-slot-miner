@@ -253,7 +253,7 @@ export default function Crash() {
     }
     setBalance((b) => b - bet);
     setBetPlaced(true);
-    setMessage({ text: `Ставка ${bet} ₽ принята`, type: "info" });
+    setMessage({ text: `Ставка ${bet} К принята`, type: "info" });
   };
 
   // ── Cash out
@@ -264,7 +264,7 @@ export default function Crash() {
     setCashedOut(true);
     setCashOutMultiplier(multiplier);
     setBalance((b) => b + win);
-    setMessage({ text: `Забрали ×${multiplier.toFixed(2)} — выигрыш ${win} ₽!`, type: "win" });
+    setMessage({ text: `Забрали ×${multiplier.toFixed(2)} — выигрыш ${win} К!`, type: "win" });
     setHistory((h) => [{ multiplier, crashed: false, win }, ...h].slice(0, 12));
   };
 
@@ -337,7 +337,7 @@ export default function Crash() {
               Баланс:
             </span>
             <span className="text-sm font-bold" style={{ color: "#e8a830" }}>
-              {balance.toLocaleString("ru")} ₽
+              {balance.toLocaleString("ru")} К
             </span>
           </div>
         </div>
@@ -524,7 +524,7 @@ export default function Crash() {
                   }}
                 />
                 <span className="text-sm font-bold" style={{ color: "#e8a830" }}>
-                  ₽
+                  К
                 </span>
               </div>
 
@@ -537,7 +537,7 @@ export default function Crash() {
                   Текущая ставка:
                 </span>
                 <span className="text-sm font-bold" style={{ color: "#e8a830" }}>
-                  {bet.toLocaleString("ru")} ₽
+                  {bet.toLocaleString("ru")} К
                 </span>
               </div>
             </div>
@@ -561,10 +561,10 @@ export default function Crash() {
                   }}
                 >
                   {gameState === "flying" && betPlaced && !cashedOut
-                    ? `${Math.floor(bet * multiplier).toLocaleString("ru")} ₽ (×${multiplier.toFixed(2)})`
+                    ? `${Math.floor(bet * multiplier).toLocaleString("ru")} К (×${multiplier.toFixed(2)})`
                     : cashOutMultiplier
-                    ? `${Math.floor(bet * cashOutMultiplier).toLocaleString("ru")} ₽ забрано`
-                    : `~${Math.floor(bet * 2).toLocaleString("ru")} ₽ при ×2.00`}
+                    ? `${Math.floor(bet * cashOutMultiplier).toLocaleString("ru")} К забрано`
+                    : `~${Math.floor(bet * 2).toLocaleString("ru")} К при ×2.00`}
                 </div>
               </div>
 
@@ -688,7 +688,7 @@ export default function Crash() {
                   }
                 >
                   ×{item.multiplier.toFixed(2)}
-                  {item.win != null && <span className="ml-1 opacity-70">+{item.win.toLocaleString("ru")}₽</span>}
+                  {item.win != null && <span className="ml-1 opacity-70">+{item.win.toLocaleString("ru")}К</span>}
                 </div>
               ))}
             </div>
@@ -698,7 +698,7 @@ export default function Crash() {
         {/* ── INFO PANEL ── */}
         <div className="grid grid-cols-3 gap-3">
           {[
-            { label: "Мин. ставка", value: "50 ₽" },
+            { label: "Мин. ставка", value: "50 К" },
             { label: "Макс. выигрыш", value: "×100+" },
             { label: "Возврат", value: "95%" },
           ].map((stat) => (

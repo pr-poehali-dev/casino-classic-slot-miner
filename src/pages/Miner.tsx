@@ -149,8 +149,8 @@ export default function Miner() {
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <span className="text-xl" style={{ color: "rgba(235,225,205,0.5)" }}>←</span>
-            <span className="text-lg font-black" style={{ color: "#ebe1cd" }}>ROYAL</span>
-            <span className="text-lg font-black" style={{ color: "#e8a830" }}>BET</span>
+            <span className="text-lg font-black" style={{ color: "#ebe1cd" }}>KAZAH</span>
+            <span className="text-lg font-black" style={{ color: "#e8a830" }}> CASINO</span>
           </Link>
 
           <div
@@ -162,7 +162,7 @@ export default function Miner() {
           >
             <span className="text-sm" style={{ color: "rgba(235,225,205,0.6)" }}>Баланс:</span>
             <span className="text-sm font-bold" style={{ color: "#e8a830" }}>
-              {balance.toLocaleString("ru")} ₽
+              {balance.toLocaleString("ru")} К
             </span>
           </div>
         </div>
@@ -210,7 +210,7 @@ export default function Miner() {
                   </button>
                 ))}
               </div>
-              <p className="text-xs" style={{ color: "rgba(235,225,205,0.3)" }}>Ставка: {bet.toLocaleString("ru")} ₽</p>
+              <p className="text-xs" style={{ color: "rgba(235,225,205,0.3)" }}>Ставка: {bet.toLocaleString("ru")} К</p>
             </div>
 
             {/* Mines */}
@@ -304,7 +304,7 @@ export default function Miner() {
                   boxShadow: safeRevealed > 0 ? "0 4px 20px rgba(34,197,94,0.2)" : "none",
                 }}
               >
-                💰 Забрать {safeRevealed > 0 ? `${potentialWin.toLocaleString("ru")} ₽` : ""}
+                💰 Забрать {safeRevealed > 0 ? `${potentialWin.toLocaleString("ru")} К` : ""}
               </button>
             )}
 
@@ -365,12 +365,12 @@ export default function Miner() {
                   )}
                   {gameState === "won" && (
                     <span className="text-sm font-bold" style={{ color: "#22c55e" }}>
-                      🎉 Победа! +{currentWin.toLocaleString("ru")} ₽
+                      🎉 Победа! +{currentWin.toLocaleString("ru")} К
                     </span>
                   )}
                   {gameState === "lost" && (
                     <span className="text-sm font-bold" style={{ color: "#ef4444" }}>
-                      💥 Мина! Проигрыш -{bet.toLocaleString("ru")} ₽
+                      💥 Мина! Проигрыш -{bet.toLocaleString("ru")} К
                     </span>
                   )}
                 </div>

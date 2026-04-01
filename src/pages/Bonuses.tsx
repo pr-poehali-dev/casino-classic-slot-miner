@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const VALID_PROMO_CODES: Record<string, { coins: number; label: string }> = {
-  ROYAL100: { coins: 100, label: "+100 монет" },
-  LUCKY500: { coins: 500, label: "+500 монет" },
-  VIP1000: { coins: 1000, label: "+1000 монет" },
-  WELCOME50: { coins: 50, label: "+50 монет" },
+  ROYAL100: { coins: 100, label: "+100 К" },
+  LUCKY500: { coins: 500, label: "+500 К" },
+  VIP1000: { coins: 1000, label: "+1000 К" },
+  WELCOME50: { coins: 50, label: "+50 К" },
 };
 
 const dailyBonuses = [
@@ -103,8 +103,8 @@ export default function Bonuses() {
                 ♠
               </div>
               <div>
-                <span className="text-xl font-black tracking-tight" style={{ color: "#ebe1cd" }}>ROYAL</span>
-                <span className="text-xl font-black tracking-tight" style={{ color: "#e8a830" }}>BET</span>
+                <span className="text-xl font-black tracking-tight" style={{ color: "#ebe1cd" }}>KAZAH</span>
+                <span className="text-xl font-black tracking-tight" style={{ color: "#e8a830" }}> CASINO</span>
               </div>
             </div>
           </div>
@@ -118,7 +118,7 @@ export default function Bonuses() {
             }}
           >
             <span className="text-base">🪙</span>
-            <span className="text-sm" style={{ color: "rgba(235,225,205,0.6)" }}>Монеты:</span>
+            <span className="text-sm" style={{ color: "rgba(235,225,205,0.6)" }}>Казах Коины:</span>
             <span className="text-sm font-bold" style={{ color: "#e8a830" }}>
               {coins.toLocaleString("ru")}
             </span>
@@ -144,7 +144,7 @@ export default function Bonuses() {
             Бонусы & Награды
           </h1>
           <p className="text-base" style={{ color: "rgba(235,225,205,0.45)" }}>
-            Получайте монеты каждый день и активируйте промокоды
+            Получайте Казах Коины каждый день и активируйте промокоды
           </p>
         </div>
       </section>
@@ -164,13 +164,13 @@ export default function Bonuses() {
           <div className="text-7xl" style={{ filter: "drop-shadow(0 0 20px rgba(232,168,48,0.5))" }}>🪙</div>
           <div className="flex-1 text-center md:text-left">
             <p className="text-sm font-medium uppercase tracking-widest mb-1" style={{ color: "rgba(235,225,205,0.5)" }}>
-              Ваш баланс монет
+              Ваш баланс Казах Коинов
             </p>
             <p className="text-5xl font-black" style={{ color: "#e8a830" }}>
               {coins.toLocaleString("ru")}
             </p>
             <p className="text-sm mt-1" style={{ color: "rgba(235,225,205,0.35)" }}>
-              Монеты можно тратить на внутриигровые бонусы
+              Казах Коины можно тратить на внутриигровые бонусы
             </p>
           </div>
           <div className="flex flex-col gap-2 text-sm" style={{ color: "rgba(235,225,205,0.4)" }}>
@@ -208,7 +208,7 @@ export default function Bonuses() {
             <div>
               <h2 className="text-xl font-black" style={{ color: "#ebe1cd" }}>Ежедневный вход</h2>
               <p className="text-sm mt-0.5" style={{ color: "rgba(235,225,205,0.4)" }}>
-                Заходите каждый день, чтобы получить больше монет
+                Заходите каждый день, чтобы получить больше Казах Коинов
               </p>
             </div>
             <div
@@ -302,7 +302,7 @@ export default function Bonuses() {
           <div className="mb-6">
             <h2 className="text-xl font-black" style={{ color: "#ebe1cd" }}>Ввести промокод</h2>
             <p className="text-sm mt-0.5" style={{ color: "rgba(235,225,205,0.4)" }}>
-              Введите действующий промокод и получите бонусные монеты
+              Введите действующий промокод и получите бонусные Казах Коины
             </p>
           </div>
 
@@ -406,8 +406,8 @@ export default function Bonuses() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[
-            { icon: "🏆", title: "Задания", desc: "Выполняйте задания и зарабатывайте монеты", badge: "Скоро" },
-            { icon: "👥", title: "Реферальная программа", desc: "Приглашайте друзей и получайте % с их монет", badge: "Скоро" },
+            { icon: "🏆", title: "Задания", desc: "Выполняйте задания и зарабатывайте Казах Коины", badge: "Скоро" },
+            { icon: "👥", title: "Реферальная программа", desc: "Приглашайте друзей и получайте % с их Казах Коинов", badge: "Скоро" },
           ].map((item) => (
             <div
               key={item.title}
@@ -442,14 +442,14 @@ export default function Bonuses() {
       >
         <div className="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <span className="text-lg font-black" style={{ color: "#ebe1cd" }}>ROYAL</span>
-            <span className="text-lg font-black" style={{ color: "#e8a830" }}>BET</span>
+            <span className="text-lg font-black" style={{ color: "#ebe1cd" }}>KAZAH</span>
+            <span className="text-lg font-black" style={{ color: "#e8a830" }}> CASINO</span>
           </div>
           <p className="text-xs text-center" style={{ color: "rgba(235,225,205,0.25)" }}>
             Игра на деньги — только для лиц старше 18 лет. Играйте ответственно.
           </p>
           <p className="text-xs" style={{ color: "rgba(235,225,205,0.2)" }}>
-            © 2024 RoyalBet
+            © 2024 KazahCasino
           </p>
         </div>
       </footer>
