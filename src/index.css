@@ -133,6 +133,28 @@
   }
 }
 
+/* Slot reel spin animation */
+@keyframes spin-reel {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-spin-reel {
+  animation: spin-reel 0.12s linear infinite;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2px;
+  padding: 4px;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 4px;
