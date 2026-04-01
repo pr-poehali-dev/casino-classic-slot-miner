@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const games = [
   {
@@ -24,6 +24,7 @@ const games = [
 
 export default function Index() {
   const [balance] = useState(10000);
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen" style={{ background: "var(--surface)" }}>
@@ -60,16 +61,26 @@ export default function Index() {
 
           {/* Nav */}
           <nav className="hidden md:flex items-center gap-6">
-            {["Главная", "Игры", "Бонусы"].map((item) => (
+            {[
+              { label: "Главная", href: "/" },
+              { label: "Игры", href: "/#games" },
+              { label: "Бонусы", href: "/bonuses" },
+            ].map((item) => (
               <a
-                key={item}
-                href="#"
+                key={item.label}
+                href={item.href}
+                onClick={(e) => {
+                  if (item.href.startsWith("/") && !item.href.includes("#")) {
+                    e.preventDefault();
+                    navigate(item.href);
+                  }
+                }}
                 className="text-sm font-medium transition-colors"
                 style={{ color: "rgba(235,225,205,0.55)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "#ebe1cd")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(235,225,205,0.55)")}
               >
-                {item}
+                {item.label}
               </a>
             ))}
           </nav>
